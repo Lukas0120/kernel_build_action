@@ -9,7 +9,7 @@ jobs:
   yaml-check:
     runs-on: android
     permissions:
-      contents: read/write
+      contents: write
     steps:
 
     - name: Checkout Repo
@@ -33,7 +33,7 @@ jobs:
       - yaml-check
     runs-on: android
     permissions:
-      contents: read/write
+      contents: write
 
     steps:
     - name: Test CI
