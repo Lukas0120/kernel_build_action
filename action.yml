@@ -86,17 +86,17 @@ inputs:
   aosp-gcc:
     description: 'Use gcc from aosp project.'
     required: true
-    default: true
+    default: false
   aosp-clang:
     description: 'Use clang from aosp project.'
-    required: false
+    required: true
     default: true
   aosp-clang-version:
-    required: false
+    required: true
     default: "r510928"
   other-clang-url:
     required: false
-    default: ''
+    default: false
   other-clang-branch:
     required: false
     default: main
@@ -189,18 +189,12 @@ runs:
 
          if [ ${{ inputs.aosp-clang }} = false ] && [ ${{ inputs.android-ndk }} = false ]; then
              echo "::group:: Downloading 3rd clang"
-             export OTHER_CLANG_URL=${{ inputs.other-clang-url }}
+             export OTHER_CLANG_URL=https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928.tar.gz
              if [[ "$OTHER_CLANG_URL" == *'.tar.gz' ]]; then
                  wget -O clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928.tar.gz
                  mkdir clang
                  tar -C $HOME/clang/ -zxvf clang.tar.gz
-             elif [[ "$OTHER_CLANG_URL" == *'.zip' ]]; then
-                 wget -O clang.zip "$OTHER_CLANG_URL"
-                 mkdir clang
-                 unzip clang.zip -d $HOME/clang/
-             else
-                 git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928 $HOME/clang --depth=${{ inputs.depth }} -b main
-             fi
+            if
          fi
          echo "::endgroup::"
 
