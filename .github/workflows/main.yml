@@ -29,9 +29,7 @@ jobs:
   ci-test:
     strategy:
       fail-fast: false
-    needs:
-      - yaml-check
-    runs-on: android
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 
