@@ -278,14 +278,14 @@ runs:
                 else
                     if cat fs/open.c | grep -i do_faccessat >/dev/null ; then
                         echo  Kernel SUBLEVEL is "$SUBLEVEL" >/dev/null
-                    else
-                        wget https://github.com/dabao1955/kernel_build_action/raw/main/ksupatchs/KernelSU-4.9-faccessat-hook.patch
-                        git apply KernelSU-4.9-faccessat-hook.patch
+#                    else
+#                        wget https://github.com/dabao1955/kernel_build_action/raw/main/ksupatchs/KernelSU-4.9-faccessat-hook.patch
+#                       git apply KernelSU-4.9-faccessat-hook.patch
                     fi
                     if grep -q "CONFIG_OPLUS_KERNEL_SECURE_GUARD" fs/exec.c ; then
-                        wget https://github.com/dabao1955/kernel_build_action/raw/main/ksupatchs/KernelSU-hook-OPLUS.patch
-                        git apply KernelSU-hook-OPLUS.patch
-                    else
+#                        wget https://github.com/dabao1955/kernel_build_action/raw/main/ksupatchs/KernelSU-hook-OPLUS.patch
+#                        git apply KernelSU-hook-OPLUS.patch
+#                    else
                         wget https://github.com/dabao1955/kernel_build_action/raw/main/ksupatchs/KernelSU-hook.patch
                         git apply KernelSU-hook.patch
                     fi
