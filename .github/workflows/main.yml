@@ -23,7 +23,7 @@ jobs:
     - name: Imstall dependence
       run: cd tests && yarn install
 
-    - name: Check yaml
+    - name: yaml-check
       run: cd tests && node index.js
 
   ci-test:
