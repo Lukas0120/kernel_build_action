@@ -7,7 +7,7 @@ branding:
 
 inputs:
   kernel-url:
-    description: 'Kernel Source Url'
+    description: 'https://github.com/DespairFactor/kernel_common'
     required: true
   depth:
     required: false
@@ -38,15 +38,15 @@ inputs:
   android-version:
     description: 'Android version.'
     required: true
-    default: 12
+    default: 14
   apatch:
     description: 'APatch function support'
     required: false
     default: false
   ksu:
     description: 'KernelSU function support'
-    required: false
-    default: false
+    required: true
+    default: true
   ksu-version:
     description: 'KernelSU default branch'
     required: false
@@ -54,7 +54,7 @@ inputs:
   overlayfs:
     description: 'Enable Overlayfs for ksu'
     required: false
-    default: false
+    default: true
   disable-lto:
     description: 'Disable LTO configs for configs.'
     required: false
@@ -90,10 +90,10 @@ inputs:
   aosp-clang:
     description: 'Use clang from aosp project.'
     required: false
-    default: false
+    default: true
   aosp-clang-version:
     required: false
-    default: "r383902"
+    default: "r510928"
   other-clang-url:
     required: false
     default: ''
@@ -115,7 +115,7 @@ inputs:
   anykernel3:
     description: 'Package kernel use anykernel3.'
     required: false
-    default: false
+    default: true
   bootimg-url:
     description: "boot.img path"
     required: false
