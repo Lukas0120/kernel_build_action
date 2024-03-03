@@ -1,9 +1,12 @@
-name: ci
+name: Build Kernel
 on:
-  push:
-    branches: main
-  pull_request:
+
   workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Kernel by ${{ github.actor }}
+    runs-on: ubuntu-latest
 
 jobs:
   yaml-check:
