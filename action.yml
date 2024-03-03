@@ -194,7 +194,7 @@ runs:
                  wget -O clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928.tar.gz
                  mkdir clang
                  tar -C $HOME/clang/ -zxvf clang.tar.gz
-            if
+             fi
          fi
          echo "::endgroup::"
 
