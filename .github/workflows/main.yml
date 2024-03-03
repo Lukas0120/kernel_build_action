@@ -9,10 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
 jobs:
-  yaml-check:
-    runs-on: android
-    permissions:
-      contents: write
+  build:
+    name: Build Kernel by ${{ github.actor }}
+    runs-on: ubuntu-latest
+    env:
+      CCACHE_NOHASHDIR: "true"
+      CCACHE_HARDLINK: "true"
     steps:
 
     - name: Checkout Repo
