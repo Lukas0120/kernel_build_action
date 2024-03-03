@@ -191,7 +191,7 @@ runs:
              echo "::group:: Downloading 3rd clang"
              export OTHER_CLANG_URL=${{ inputs.other-clang-url }}
              if [[ "$OTHER_CLANG_URL" == *'.tar.gz' ]]; then
-                 wget -O clang.tar.gz "$OTHER_CLANG_URL"
+                 wget -O clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928.tar.gz
                  mkdir clang
                  tar -C $HOME/clang/ -zxvf clang.tar.gz
              elif [[ "$OTHER_CLANG_URL" == *'.zip' ]]; then
@@ -199,7 +199,7 @@ runs:
                  mkdir clang
                  unzip clang.zip -d $HOME/clang/
              else
-                 git clone "$OTHER_CLANG_URL" $HOME/clang --depth=${{ inputs.depth }} -b ${{ inputs.other-clang-branch }}
+                 git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928 $HOME/clang --depth=${{ inputs.depth }} -b main
              fi
          fi
          echo "::endgroup::"
