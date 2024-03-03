@@ -7,9 +7,9 @@ on:
 
 jobs:
   yaml-check:
-    runs-on: ubuntu-latest
+    runs-on: android
     permissions:
-      contents: write
+      contents: read/write
     steps:
 
     - name: Checkout Repo
@@ -31,27 +31,27 @@ jobs:
       fail-fast: false
     needs:
       - yaml-check
-    runs-on: ubuntu-latest
+    runs-on: android
     permissions:
-      contents: write
+      contents: read/write
 
     steps:
     - name: Test CI
-      uses: dabao1955/kernel_build_action@main
+      uses: Lukas0120/kernel_build_action@main
       with:
-          kernel-url: https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas
+          kernel-url: https://github.com/DespairFactor/kernel_common
           kernel-dir: msm-4.19
-          branch: taffy
-          config: cas_defconfig
+          branch: main
+          config: defconfig
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
           ksu: true
           ksu-version: main
-          android-version: 12
-          aosp-clang-version: r383902
+          android-version: 14
+          aosp-clang-version: r510928
           python-27: true
-          disable-lto: true
+          disable-lto: false
           overlayfs: true
           lxc: false
           lxc-patch: false
